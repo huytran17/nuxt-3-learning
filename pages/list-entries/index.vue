@@ -17,7 +17,17 @@ definePageMeta({
   layout: "entries",
 });
 
-const { data } = await useFetch<any>("https://api.publicapis.org/entries");
+useHead({
+  title: "This is an entries list",
+  meta: [
+    {
+      content: "This is an entries list",
+      "http-equiv": "content-type",
+    },
+  ],
+});
+
+const { data } = await useLazyFetch<any>("https://api.publicapis.org/entries");
 
 const entries = data?.value?.entries || [];
 

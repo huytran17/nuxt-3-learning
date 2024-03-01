@@ -21,6 +21,11 @@ export default {
       layout: "entries",
     });
 
+    useSeoMeta({
+      title: "This is a randon list of entries",
+      ogTitle: "This is a randon list of entries",
+    });
+
     const { data } = await useFetch<any>("https://api.publicapis.org/random");
 
     return {
