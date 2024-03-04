@@ -1,5 +1,6 @@
 <template>
   <div class="routes">
+    Today is: {{ formatDate(new Date()) }}
     <input v-focus type="text" />
     <nuxt-link to="/list-entries">List Entries</nuxt-link>
     <nuxt-link to="/list-entries/random">List Entries Random</nuxt-link>
