@@ -2,6 +2,9 @@
   <div class="routes">
     <nuxt-link to="/list-entries">List Entries</nuxt-link>
     <nuxt-link to="/list-entries/random">List Entries Random</nuxt-link>
+    <nuxt-link to="/counter">Counter</nuxt-link>
+    <nuxt-link to="/test-hooks">Test hooks</nuxt-link>
+    <nuxt-link to="/aborted">Aborted middleware</nuxt-link>
   </div>
 </template>
 

@@ -1,6 +1,7 @@
 <template>
   <div>
     <BaseBackToPrevPage />
+    <button @click="refetch">Refetch</button>
 
     <div v-if="hasData">
       <template v-for="entry in entries" :key="entry.API">
@@ -13,8 +14,6 @@
 </template>
 
 <script lang="ts">
-import { LazyEntryBaseCard, BaseBackToPrevPage, BaseNoData } from "#components";
-
 export default {
   async setup() {
     definePageMeta({
@@ -26,17 +25,14 @@ export default {
       ogTitle: "This is a randon list of entries",
     });
 
-    const { data } = await useFetch<any>("https://api.publicapis.org/random");
+    const { data, refresh } = await useFetch<any>(
+      "https://api.publicapis.org/random"
+    );
 
     return {
       entries: data?.value?.entries || [],
+      refresh,
     };
-  },
-
-  components: {
-    LazyEntryBaseCard,
-    BaseBackToPrevPage,
-    BaseNoData,
   },
 
   computed: {
@@ -75,6 +71,12 @@ export default {
 
   unmounted() {
     console.log("--------------unmounted");
+  },
+
+  methods: {
+    refetch() {
+      this.refresh();
+    },
   },
 };
 </script>

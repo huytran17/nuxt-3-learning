@@ -15,6 +15,7 @@
 <script setup lang="ts">
 definePageMeta({
   layout: "entries",
+  middleware: ["local-middleware"],
 });
 
 useHead({
